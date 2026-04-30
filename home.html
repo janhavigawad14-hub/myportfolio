@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Home - Janhavi Gawad</title>
+
+  <!-- Font Awesome for icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg-color: white;
+      --text-color: #333;
+      --header-bg: linear-gradient(90deg, #667eea, #764ba2);
+      --nav-link-color: white;
+      --hover-bg: #ffe600;
+      --profile-border: #764ba2;
+      --subtitle-color: #555;
+    }
+
+    body.dark-mode {
+      --bg-color: #121212;
+      --text-color: #e0e0e0;
+      --header-bg: linear-gradient(90deg, #333, #111);
+      --nav-link-color: #ffe600;
+      --hover-bg: #333;
+      --profile-border: #ffe600;
+      --subtitle-color: #aaa;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    header {
+      background: var(--header-bg);
+      padding: 20px 40px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: #ffe600;
+      user-select: none;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+    }
+
+    nav {
+      display: flex;
+      gap: 25px;
+    }
+
+    nav a {
+      color: var(--nav-link-color);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      padding: 8px 12px;
+      border-radius: 6px;
+      transition: background 0.3s ease;
+    }
+
+    nav a:hover,
+    nav a:focus {
+      background: var(--hover-bg);
+      color: white;
+      outline: none;
+    }
+
+    .subtitle {
+      width: 100%;
+      margin-top: 8px;
+      font-weight: 300;
+      font-size: 1.1rem;
+      color: var(--subtitle-color);
+      user-select: none;
+      text-align: center;
+    }
+
+    .theme-toggle {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #ffe600;
+      font-size: 1.5rem;
+      margin-left: 20px;
+      transition: transform 0.2s ease;
+    }
+
+    .theme-toggle:hover {
+      transform: scale(1.1);
+    }
+
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        padding: 20px;
+        gap: 8px;
+      }
+
+      nav {
+        justify-content: center;
+        width: 100%;
+        gap: 15px;
+      }
+
+      .theme-toggle {
+        margin: 10px 0 0 0;
+      }
+    }
+
+    .profile-section {
+      background-color: var(--bg-color);
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .profile-img {
+      width: 160px;
+      height: 190px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--profile-border);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header role="banner">
+    <div class="logo" tabindex="0">Welcome</div>
+    
+    <nav role="navigation" aria-label="Primary navigation">
+      <a href="about.html" tabindex="0">About Me</a>
+      <a href="achievement.html" tabindex="0">Achievements</a>
+      <!--<a href="#skills" tabindex="0">Skills</a>-->
+      <a href="contact.html" tabindex="0">Contact</a>
+    </nav>
+
+    <!-- Icon button for theme toggle -->
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+      <i id="theme-icon" class="fas fa-moon"></i>
+    </button>
+
+    <div class="subtitle" aria-label="Short description">
+      Second Year Student | Aspiring Software Developer
+    </div>
+  </header>
+
+  <!-- Profile Section -->
+  <section class="profile-section">
+    <img src="pic2.jpg" alt="Profile Picture" class="profile-img" />
+  </section>
+
+  <script>
+    window.onload = () => {
+      const body = document.body;
+      const icon = document.getElementById('theme-icon');
+
+      if (!sessionStorage.getItem('visited')) {
+        // Fresh visit — reset to light mode and clear saved theme
+        body.classList.remove('dark-mode');
+        icon.classList.remove('fa-sun');
+        icon.classList.add('fa-moon');
+        localStorage.setItem('theme', 'light');
+
+        sessionStorage.setItem('visited', 'true');
+      } else {
+        // Subsequent page loads — apply stored theme
+        if (localStorage.getItem('theme') === 'dark') {
+          body.classList.add('dark-mode');
+          icon.classList.remove('fa-moon');
+          icon.classList.add('fa-sun');
+        } else {
+          body.classList.remove('dark-mode');
+          icon.classList.remove('fa-sun');
+          icon.classList.add('fa-moon');
+        }
+      }
+    };
+
+    function toggleTheme() {
+      const body = document.body;
+      const icon = document.getElementById('theme-icon');
+
+      body.classList.toggle('dark-mode');
+
+      if (body.classList.contains('dark-mode')) {
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        icon.classList.remove('fa-sun');
+        icon.classList.add('fa-moon');
+        localStorage.setItem('theme', 'light');
+      }
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact - Janhavi Gawad</title>
+  
+  <!-- Link to Font Awesome for icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-color: white;
+      --text-color: #333;
+      --header-bg: linear-gradient(90deg, #667eea, #764ba2);
+      --highlight-color: #ffe600;
+      --link-color: #764ba2;
+      --icon-color: #764ba2;
+      --back-link-color: #ffe600;
+    }
+
+    body.dark-mode {
+      --bg-color: #121212;
+      --text-color: #e0e0e0;
+      --header-bg: linear-gradient(90deg, #333, #111);
+      --highlight-color: #ffe600;
+      --link-color: #ffe600;
+      --icon-color: #ffe600;
+      --back-link-color: #ffe600;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    header {
+      background: var(--header-bg);
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 10px rgb(244 242 242);
+    }
+
+    .page-title {
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--highlight-color);
+      margin: 0;
+    }
+
+    .back-link {
+      font-size: 1rem;
+      color: var(--back-link-color);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    .contact-section {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      padding: 60px 20px;
+      max-width: 800px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .contact-section h2 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      border-bottom: 2px solid var(--highlight-color);
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+      color: var(--link-color);
+    }
+
+    .contact-section p {
+      font-size: 1.1rem;
+      margin-bottom: 12px;
+      line-height: 1.6;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 20px;
+    }
+
+    .social-icons a {
+      color: var(--icon-color);
+      font-size: 2rem;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      color: var(--highlight-color);
+    }
+
+    .contact-info {
+      margin-top: 30px;
+    }
+
+    .contact-info p {
+      font-size: 1.1rem;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      .social-icons {
+        flex-direction: column;
+        gap: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1 class="page-title">Contact Me</h1>
+    <a class="back-link" href="home.html">← Back to Home</a>
+  </header>
+
+  <!-- Contact Details Section -->
+  <section class="contact-section">
+    <h2>Get in Touch</h2>
+    <p>If you want to contact me, you can reach me through the following platforms:</p>
+
+    <!-- Social Media Icons -->
+    <div class="social-icons">
+      <!-- Instagram -->
+      <a href="https://instagram.com/janhavi.gawad" target="_blank" title="Instagram" rel="noopener">
+        <i class="fab fa-instagram"></i>
+      </a>
+      
+      <!-- LinkedIn -->
+      <a href="https://linkedin.com/in/janhavigawad" target="_blank" title="LinkedIn" rel="noopener">
+        <i class="fab fa-linkedin"></i>
+      </a>
+
+      <!-- Email -->
+      <a href="mailto:janhavi.gawad14example.com" title="Email">
+        <i class="fas fa-envelope"></i>
+      </a>
+
+      <!-- WhatsApp -->
+      <a href="https://wa.me/+919699909238" target="_blank" title="WhatsApp" rel="noopener">
+        <i class="fab fa-whatsapp"></i>
+      </a>
+    </div>
+
+    <!-- Additional Contact Information -->
+    <div class="contact-info">
+      <p><strong>Phone:</strong> +91 9876543210</p>
+      <p><strong>Email:</strong> <a href="mailto:janhavi.gawad@example.com">janhavi.gawad@example.com</a></p>
+      <p><strong>Address:</strong> Virar (East), Maharashtra, India</p>
+    </div>
+  </section>
+
+  <script>
+    window.onload = () => {
+      if(localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark-mode');
+      } else {
+        document.body.classList.remove('dark-mode');
+      }
+    };
+  </script>
+
+</body>
+</html>
